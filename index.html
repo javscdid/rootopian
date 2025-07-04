@@ -128,11 +128,11 @@
     <button class="close-btn" onclick="toggleMenu()">←</button>
     <ul>
       <li><a href="#home">🏠 Home</a></li>
-      <li><a href="#how">📘 How To Play</a></li>
+      <li><a href="#info">📘 Server Information</a></li>
       <li><a href="#community">👥 Community Group</a></li>
+      <li><a href="#host">🎮 Server Host</a></li>
+      <li><a href="#contact">👤 Contact Us</a></li>
       <li><a href="#shop">🛒 Shop</a></li>
-      <li><a href="#faq">❓ FAQ</a></li>
-      <li><a href="#privacy">🔐 Privacy Policy</a></li>
     </ul>
   </nav>
 
@@ -142,39 +142,39 @@
     <p>Welcome to RooTopia Offical Website!</p>
   </header>
 
-  <section id="how">
+  <section id="info">
     <div class="box">
       <h2>Server Information</h2>
-      <p>Server was made by Calvyn & Zyx. <br>
-         2. Copy Hosts Windows.<br>
-         3. Jalankan Launcher.<br>
-         4. Enjoy RooTopia GTPS!</p>
+      <p>This server is made by Calvyn & Zyx. On this server, you can get various interesting and rare custom items! You can also try various profits such as fishing, geiger, trading, bfg, even casinos can be tried because casinos are legal on this server! We always create interesting events for our players. One of them is the promote event, only by promoting you can get the Developer role. We are also making an event that gives prizes of MONEY / RGT diamond locks </p>
     </div>
   </section>
 
-  <section id="status">
+  <section id="community">
     <div class="box">
-      <h2>Status Server</h2>
-      <p>⚡ Online</p>
+      <h2>Community Group</h2>
+      <h2>Discord Server</h2>
+      <a class="download-btn" href="https://discord.gg/hc8AzHa6FJ" target="_blank">Click Here!</a>
+      <h2>WhatsApp Group</h2>
+      <a class="download-btn" href="https://chat.whatsapp.com/KNiZozpZgxp2ICfl0C9Z8X" target="_blank">Click Here!</a>
     </div>
   </section>
 
-  <section id="vhost">
+  <section id="host">
     <div class="box">
-      <h2>Download VHOST</h2>
-      <a class="download-btn" href="https://www.mediafire.com/file/zjfafnqoyzk8f85/RooTopia1.txt/file" target="_blank">Download VHOST</a>
+      <h1>Server Host</h1>
+      <h2>Download Virtual Host</h2>
+      <a class="download-btn" href="https://www.mediafire.com/file/zjfafnqoyzk8f85/RooTopia1.txt/file" target="_blank">Download</a>
     </div>
     <div class="box">
-      <h2>Copy PTunnel</h2>
+      <h2>Copy PowerTunnel Link</h2>
       <div class="copy-box" onclick="copyToClipboard('https://gtpshost.com/RooTopia1.txt')">
         https://gtpshost.com/RooTopia1.txt
       </div>
     </div>
   </section>
-
   <section id="hosts">
     <div class="box">
-      <h2>Copy Windows Hosts</h2>
+      <h2>Copy Windows IP</h2>
       <div class="copy-box" onclick="copyToClipboard(`159.223.42.117 growtopia1.com
 159.223.42.117 growtopia2.com
 159.223.42.117 www.growtopia1.com
@@ -189,13 +189,27 @@
     </div>
   </section>
 
+  <section id="contact">
+    <div class="box">
+      <h2>Contact Us</h2>
+      <a class="download-btn" href="https://wa.me/639097571277" target="_blank">Calvyn Whatsapp</a>
+      <a class="download-btn" href="https://wa.me/6289608833355" target="_blank">Zyx Whatsapp</a>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="box">
+      <h2>Soon!</h2>
+    </div>
+  </section>
+
   <script>
     function toggleMenu() {
       document.getElementById("sideMenu").classList.toggle("open");
     }
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(() => {
-        alert("Teks berhasil dicopy!");
+        alert("Text successfully copied!");
       });
     }
     document.addEventListener("DOMContentLoaded", () => {
