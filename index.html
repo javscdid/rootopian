@@ -1,229 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RooTopia Private Server</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RooTopia GTPS</title>
   <style>
-    :root {
-      --main-bg: #0a0f0a;
-      --accent: #00ffcc;
-      --secondary-bg: #101e15;
-      --text: #e0ffe7;
-    }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background-color: var(--main-bg);
-      color: var(--text);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a0026, #0d0d0d);
+      color: #fff;
+      text-align: center;
     }
     header {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(to bottom, #0a0f0a, #101e15);
+      padding: 40px 20px 20px;
     }
-    header img { max-width: 120px; margin-bottom: 10px; animation: floatLogo 3s ease-in-out infinite; }
-    @keyframes floatLogo { 0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);} }
-    header h1 { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
-    header p { font-size: 1.1rem; margin-top: 10px; }
-
-    .menu-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #004f4f;
-      color: white;
-      border: none;
-      padding: 12px 16px;
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
       font-size: 16px;
-      border-radius: 30px;
-      cursor: pointer;
-      z-index: 1001;
-      font-weight: bold;
+      margin-top: 10px;
+      color: #ccc;
     }
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -270px;
-      height: 100%;
-      width: 260px;
-      background-color: #001c1a;
-      padding: 2rem 1rem;
-      transition: left 0.3s ease;
-      z-index: 1000;
-    }
-    .side-menu.open { left: 0; }
-    .side-menu .close-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      cursor: pointer;
-    }
-    .side-menu ul { list-style: none; padding: 0; }
-    .side-menu a {
-      display: block;
-      padding: 0.75rem 1rem;
-      color: white;
-      text-decoration: none;
-      margin: 0.3rem 0;
-      background-color: #00332f;
-      border-radius: 8px;
-      transition: 0.2s;
-    }
-    .side-menu a:hover { background-color: #00564d; }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .box {
-      background: var(--secondary-bg);
-      border-radius: 16px;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      margin: 20px auto;
       padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 15px rgba(0,255,204,0.2);
-    }
-    .copy-box {
-      background: #0f1f14;
-      border: 2px dashed #00ffcc;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: monospace;
-    }
-    .copy-box:hover { background: #152f20; }
-    .download-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #4b6cb7, #182848);
-      color: white;
-      padding: 0.8rem 1.4rem;
       border-radius: 12px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .card h2 {
+      margin-bottom: 15px;
+      font-size: 18px;
+      text-align: left;
+    }
+    button, a.btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: bold;
       transition: 0.3s;
     }
-    .download-btn:hover { transform: scale(1.05); }
-    audio { display: none; }
+    button:hover, a.btn:hover {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      color: #000;
+    }
+    .accordion {
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: left;
+    }
+    .accordion button {
+      background: #2b2b2b;
+      text-align: left;
+      font-weight: bold;
+    }
+    .panel {
+      display: none;
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 0 0 8px 8px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    .panel h3 {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #FFD700;
+    }
+    .panel p {
+      font-size: 14px;
+      margin: 6px 0;
+      color: #ddd;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://example.com/bg-music.mp3" type="audio/mpeg">
-  </audio>
-  <button class="menu-button" onclick="toggleMenu()">MENU</button>
-  <nav class="side-menu" id="sideMenu">
-    <button class="close-btn" onclick="toggleMenu()">←</button>
-    <ul>
-      <li><a href="#home">🏠 Home</a></li>
-      <li><a href="#info">📘 Server Information</a></li>
-      <li><a href="#community">👥 Community Group</a></li>
-      <li><a href="#host">🎮 Server Host</a></li>
-      <li><a href="#contact">👤 Contact Us</a></li>
-      <li><a href="#shop">🛒 Shop</a></li>
-    </ul>
-  </nav>
-
-  <header id="home">
-    <img src="https://media.discordapp.net/attachments/1335465868221743165/1390652579221999656/20250703_180209.png?ex=686909a3&is=6867b823&hm=b17f13bf5091144250d0ac7c41749f349d76aa242797b6b4fe75cdbd6ae2de5d&=&format=webp&quality=lossless&width=770&height=770" alt="RooTopia Logo">
-    <h1>RooTopia Private Server</h1>
-    <p>Welcome to RooTopia Offical Website!</p>
+  <header>
+    <h1>ROO TOPIA</h1>
+    <p>Rasakan pengalaman bermain di Growtopia private server<br>dengan gameplay seru dan sistem stabil.</p>
   </header>
 
-  <section id="info">
-    <div class="box">
-      <h2>Server Information</h2>
-      <p>This server is made by Calvyn & Zyx. On this server, you can get various interesting and rare custom items! You can also try various profits such as fishing, geiger, trading, bfg, even casinos can be tried because casinos are legal on this server! We always create interesting events for our players. One of them is the promote event, only by promoting you can get the Developer role. We are also making an event that gives prizes of MONEY / RGT diamond locks </p>
-    </div>
-  </section>
+  <div class="card">
+    <h2>🌐 ALL HOST</h2>
+    <button onclick="copyIP()">📋 Copy IP</button>
+    <a href="host.txt" class="btn" download>⬇️ Download Host File</a>
+    <a href="powertunnel.txt" class="btn">🔗 Power Tunnel URL</a>
+    <a href="hostgo.txt" class="btn">↗️ Host GO URL</a>
+    <button onclick="toggleAccordion()">📱 Panduan Lengkap</button>
+  </div>
 
-  <section id="community">
-    <div class="box">
-      <h2>Community Group</h2>
-      <h2>Discord Server</h2>
-      <a class="download-btn" href="https://discord.gg/hc8AzHa6FJ" target="_blank">Click Here!</a>
-      <h2>WhatsApp Group</h2>
-      <a class="download-btn" href="https://chat.whatsapp.com/KNiZozpZgxp2ICfl0C9Z8X" target="_blank">Click Here!</a>
-    </div>
-  </section>
+  <div class="accordion">
+    <div id="accordionPanel" class="panel">
+      
+      <h3>📱 Panduan Android (PowerTunnel)</h3>
+      <p>1. Download <b>PowerTunnel</b> di PlayStore.</p>
+      <p>2. Klik tombol <b>PowerTunnel URL</b> di atas untuk menyalin host URL.</p>
+      <p>3. Buka PowerTunnel → klik menu (≡) → pilih <b>Host Settings</b>.</p>
+      <p>4. Tempel URL yang disalin, lalu atur host update period jadi <b>"on start"</b>.</p>
+      <p>5. Aktifkan PowerTunnel dan buka Growtopia.</p>
 
-  <section id="host">
-    <div class="box">
-      <h1>Server Host</h1>
-      <h2>Download Virtual Host</h2>
-      <a class="download-btn" href="https://www.mediafire.com/file/zjfafnqoyzk8f85/RooTopia1.txt/file" target="_blank">Download</a>
-    </div>
-    <div class="box">
-      <h2>Copy PowerTunnel Link</h2>
-      <div class="copy-box" onclick="copyToClipboard('https://gtpshost.com/RooTopia1.txt')">
-        https://gtpshost.com/RooTopia1.txt
-      </div>
-    </div>
-  </section>
-  <section id="hosts">
-    <div class="box">
-      <h2>Copy Windows IP</h2>
-      <div class="copy-box" onclick="copyToClipboard(`159.223.42.117 growtopia1.com
-159.223.42.117 growtopia2.com
-159.223.42.117 www.growtopia1.com
-159.223.42.117 www.growtopia2.com
-159.223.42.117 RvLnd.here`)">
-        159.223.42.117 growtopia1.com<br>
-        159.223.42.117 growtopia2.com<br>
-        159.223.42.117 www.growtopia1.com<br>
-        159.223.42.117 www.growtopia2.com<br>
-        159.223.42.117 RvLnd.here
-      </div>
-    </div>
-  </section>
+      <h3>📱 Panduan Android II (HostsGo)</h3>
+      <p>1. Download <b>Hosts Go</b> di PlayStore.</p>
+      <p>2. Buka Hosts Go → pilih <b>Hosts Editor</b>.</p>
+      <p>3. Tap titik tiga kanan atas → pilih <b>Download Hosts File</b>.</p>
+      <p>4. Masukkan URL dari tombol <b>Host Go URL</b> di atas.</p>
+      <p>5. Simpan dan aktifkan hosts.</p>
 
-  <section id="contact">
-    <div class="box">
-      <h2>Contact Us</h2>
-      <a class="download-btn" href="https://wa.me/639097571277" target="_blank">Calvyn Whatsapp</a>
-      <a class="download-btn" href="https://wa.me/6289608833355" target="_blank">Zyx Whatsapp</a>
-    </div>
-  </section>
+      <h3>💻 Panduan PC (Windows)</h3>
+      <p>1. Buka folder:</p>
+      <p><code>C:\Windows\System32\drivers\etc</code></p>
+      <p>2. Cari file bernama <b>hosts</b>.</p>
+      <p>3. Klik kanan → buka dengan <b>Notepad</b> (run as administrator).</p>
+      <p>4. Tambahkan IP server + domain Growtopia, contoh:</p>
+      <pre>127.0.0.1 growtopia1.com
+127.0.0.1 growtopia2.com</pre>
+      <p>5. Simpan file lalu restart Growtopia.</p>
 
-  <section id="shop">
-    <div class="box">
-      <h2>Soon!</h2>
+      <h3>🍎 Step iOS (Surge 5)</h3>
+      <p>Step 1: Download <b>Surge 5</b> dari App Store</p>
+      <p>Step 2: Tap ikon panah di samping atau setelah <b>"Default.conf"</b></p>
+      <p>Step 3: Tap pada <b>"Default"</b></p>
+      <p>Step 4: Copy Text dengan klik tombol <b>COPY</b></p>
+      <p>Step 5: Paste teks tersebut</p>
+      <p>Step 6: Tekan <b>"Done"</b></p>
+      <p>Step 7: (Opsional) Tap <b>"Rename"</b> beri nama <b>"GGTPS"</b></p>
+      <p>Step 8: Klik <b>"Setup"</b> dan izinkan semua yang diminta</p>
+      <p>Step 9: Boom! Sekarang kamu bisa main GTPS di iOS!</p>
+
     </div>
-  </section>
+  </div>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("sideMenu").classList.toggle("open");
-    }
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Text successfully copied!");
+    function copyIP() {
+      navigator.clipboard.writeText("127.0.0.1").then(() => {
+        alert("IP berhasil disalin!");
       });
     }
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll('section, header');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      sections.forEach(s => observer.observe(s));
-    });
+    function toggleAccordion() {
+      const panel = document.getElementById("accordionPanel");
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    }
   </script>
 </body>
 </html>
